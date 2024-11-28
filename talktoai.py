@@ -18,18 +18,42 @@ tts_client = texttospeech.TextToSpeechClient()
 recognizer = sr.Recognizer()
 mic = sr.Microphone()
 
-print("라즈베리파이 음성 입력이 활성화되었습니다. 질문을 말씀하세요.")
+while True:
+    while True:
+        try:
+            # 마이크로부터 음성 입력 받기
+            with mic as source:
+                print("플랜드를 불러주세요")
+                recognizer.adjust_for_ambient_noise(source)  # 주변 소음 조정
+                audio = recognizer.listen(source)  # 음성 입력 캡처
 
-try:
-    # 마이크로부터 음성 입력 받기
-    with mic as source:
-        print("질문을 말씀하세요...")
-        recognizer.adjust_for_ambient_noise(source)  # 주변 소음 조정
-        audio = recognizer.listen(source)  # 음성 입력 캡처
+                # 음성을 텍스트로 변환
+                input_text = recognizer.recognize_google(audio, language="ko-KR")  # 한국어 설정
+        except sr.UnknownValueError:
+            print("음성을 인식할 수 없습니다. 다시 시도해 주세요.")
+        except sr.RequestError as e:
+            print(f"음성 인식 서비스에 문제가 발생했습니다: {e}")
 
-    # 음성을 텍스트로 변환
-    input_text = recognizer.recognize_google(audio, language="ko-KR")  # 한국어 설정
-    print(f"입력된 질문: {input_text}")
+        if input_text == "안녕":
+            break
+
+    print("라즈베리파이 음성 입력이 활성화되었습니다. 질문을 말씀하세요.")
+
+    try:
+        # 마이크로부터 음성 입력 받기
+        with mic as source:
+            print("질문을 말씀하세요...")
+            recognizer.adjust_for_ambient_noise(source)  # 주변 소음 조정
+            audio = recognizer.listen(source)  # 음성 입력 캡처
+
+        # 음성을 텍스트로 변환
+        input_text = recognizer.recognize_google(audio, language="ko-KR")  # 한국어 설정
+        print(f"입력된 질문: {input_text}")
+    
+    except sr.UnknownValueError:
+        print("음성을 인식할 수 없습니다. 다시 시도해 주세요.")
+    except sr.RequestError as e:
+        print(f"음성 인식 서비스에 문제가 발생했습니다: {e}")
 
     prompt = user_name + ":" + input_text + "\n" + bot_name + ":"
     conversation += prompt
@@ -38,7 +62,7 @@ try:
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "system", "content": "You are a good friend of users. You give them a helpful assistant and tries to make them feel better. Do not use emoji."},
             {"role": "user", "content": conversation}
         ],
         temperature=1,
@@ -72,8 +96,3 @@ try:
     # 저장된 MP3 파일 재생
     print("생성된 응답을 재생합니다...")
     os.system(f"mpg123 {output_file}")
-
-except sr.UnknownValueError:
-    print("음성을 인식할 수 없습니다. 다시 시도해 주세요.")
-except sr.RequestError as e:
-    print(f"음성 인식 서비스에 문제가 발생했습니다: {e}")
