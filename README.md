@@ -1,10 +1,6 @@
-![image](https://github.com/user-attachments/assets/b2ef4d9b-9b28-4a83-8c98-615dba393b07)# PRIEND_Embedded
 2024년 2학기 임베디드팀 플랜드 프로젝트입니다.
 
 <img width="1223" alt="스크린샷 2024-11-20 오전 4 09 49" src="https://github.com/user-attachments/assets/c1860444-f383-418a-8381-9649afc8f694">
-<a href="https://club-project-one.vercel.app/" target="_blank">
-<img src="https://github.com/user-attachments/assets/daa622b9-7c69-4786-8db3-4996b7f140be" alt="배너" width="100%"/>
-</a>
 
 <br/>
 <br/>
