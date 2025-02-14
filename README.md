@@ -4,20 +4,26 @@
 
 <br/>
 <br/>
+
 # 1. Project Overview (프로젝트 개요)
+
 - 프로젝트 이름: 플랜드 (PRIEND)
+
 - 프로젝트 설명: 독거노인의 우울증상 완화를 위한 양방향 소통 화분
+
 - 어플리케이션 깃허브: (https://github.com/Zepelown/Priend)
+
 
 <br/>
 <br/>
 
 # 2. Team Members (팀원 및 팀 소개)
 | 이제희 | 김동건 |
-|:------:|:------:|:------:|:------:|
+|:------:|:------:|
 | <img src="https://avatars.githubusercontent.com/u/142780364?v=4" alt="이제희" width="150"> | <img src="https://avatars.githubusercontent.com/u/125544913?v=4" alt="김동건" width="150"> | 
-| HW | HW |
+| Hardware | Hardware |
 | [GitHub](https://github.com/JehuiLee) | [GitHub](https://github.com/Danny-Caesar) |
+
 <!--
 <br/>
 <br/>
