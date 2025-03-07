@@ -21,7 +21,7 @@
 | 이제희 | 김동건 |
 |:------:|:------:|
 | <img src="https://avatars.githubusercontent.com/u/142780364?v=4" alt="이제희" width="150"> | <img src="https://avatars.githubusercontent.com/u/125544913?v=4" alt="김동건" width="150"> | 
-| Hardware | Hardware |
+| Software | Software |
 | [GitHub](https://github.com/JehuiLee) | [GitHub](https://github.com/Danny-Caesar) |
 
 <!--
